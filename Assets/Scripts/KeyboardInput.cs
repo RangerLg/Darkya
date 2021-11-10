@@ -12,7 +12,14 @@ public class KeyboardInput : MonoBehaviour
     void Update()
     {
         float horizontal = Input.GetAxis("Horizontal");
-        if(ground.flag==true)
+        if (Input.GetKeyUp("space"))
+        {
+            _movement.Jump(new Vector2(0,1));
+        }
+        else if (ground.flag && !ground.isJumped)
+        {
             _movement.Move(new Vector2(horizontal, 0));
+        }
+          
     }
 }

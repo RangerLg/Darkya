@@ -14,11 +14,4 @@ public class SurfaceSlider : MonoBehaviour
     {
         _normal = collision.contacts[0].normal;
     }
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.white;
-        Gizmos.DrawLine(transform.position, new Vector2(transform.position.x, transform.position.y) + _normal * 3);
-        Gizmos.color = Color.red;
-        Gizmos.DrawLine(transform.position, new Vector2(transform.position.x, transform.position.y) + Project(transform.forward));
-    }
 }

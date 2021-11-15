@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -12,12 +13,11 @@ public class PlayerMovement : MonoBehaviour
     private bool jump = false;
     void Update()
     {
-        _horizontalMove = Input.GetAxisRaw("Horizontal") * speed;
-        if (Input.GetKeyDown(KeyCode.Space))
+        _horizontalMove = CrossPlatformInputManager.GetAxisRaw("Horizontal") * speed;
+        if (CrossPlatformInputManager.GetButtonDown("Jump"))
         {
             jump = true;
         }
-        Debug.Log(jump);
     }
 
     private void FixedUpdate()

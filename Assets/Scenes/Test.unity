@@ -280,6 +280,8 @@ GameObject:
   - component: {fileID: 130713323}
   - component: {fileID: 130713322}
   - component: {fileID: 130713321}
+  - component: {fileID: 130713325}
+  - component: {fileID: 130713324}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -371,6 +373,35 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &130713324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130713319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34bb932c1d2b4bb4ebc775c119b4148a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &130713325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130713319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1 &143048442
 GameObject:
   m_ObjectHideFlags: 0
@@ -1149,7 +1180,7 @@ MonoBehaviour:
   magic1: {fileID: 176269628}
   magic2: {fileID: 0}
   magic3: {fileID: 0}
-  MagicController: {fileID: 1669138294}
+  MagicController: {fileID: 0}
 --- !u!1 &586318809
 GameObject:
   m_ObjectHideFlags: 0
@@ -1792,6 +1823,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75fb6499c1d7d4342920e938c1b8b5c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pointEffect: {fileID: 6395832380981116922, guid: 6435a9e5be091544ca29352bf470d64d, type: 3}
 --- !u!4 &996416219
 Transform:
   m_ObjectHideFlags: 0
@@ -2465,7 +2497,6 @@ GameObject:
   - component: {fileID: 1669138291}
   - component: {fileID: 1669138292}
   - component: {fileID: 1669138293}
-  - component: {fileID: 1669138294}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -2602,7 +2633,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_JumpForce: 700
-  lightPrefab: {fileID: 7747525877262344522, guid: fa1b59bed79f1934bb73ade8a86f3c95, type: 3}
   m_CrouchSpeed: 0.36
   m_MovementSmoothing: 0
   m_AirControl: 1
@@ -2648,18 +2678,6 @@ CircleCollider2D:
   m_Offset: {x: -0.06, y: -0.34}
   serializedVersion: 2
   m_Radius: 0.63
---- !u!114 &1669138294
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1669138286}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75fb6499c1d7d4342920e938c1b8b5c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1710097613
 GameObject:
   m_ObjectHideFlags: 0

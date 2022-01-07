@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 public enum MagicType
 {
@@ -15,9 +17,10 @@ public class MagicController : MonoBehaviour
 {
     private bool touchedLastFrame;
 
-    [SerializeField] private GameObject pointEffect;
-
-
+    [SerializeField] private GameObject pointEffect1;
+    [SerializeField] private GameObject pointEffect2;
+    [SerializeField] private GameObject pointEffect3;
+    private static GameObject currentMagic;
     private List<MagicType> allMagicTypes = new List<MagicType>();
     private List<MagicType> foundMagicTypes = new List<MagicType>();
     private List<MagicType> equippedMagicTypes = new List<MagicType>();
@@ -26,11 +29,22 @@ public class MagicController : MonoBehaviour
 
     private Dictionary<MagicType, GameObject> effects;
 
+    public void ChangeMagic(int numberOfMagic)
+    {
+        currentMagic = numberOfMagic switch
+        {
+            1 => pointEffect1,
+            2 => pointEffect2,
+            3 => pointEffect3,
+            _ => currentMagic
+        };
+        Debug.Log(currentMagic+$"{numberOfMagic}");
+    }
+
     void Start()
     {
         touchedLastFrame = false;
-
-
+        currentMagic = pointEffect1;
         foreach (MagicType typeMagic in Enum.GetValues(typeof(MagicType)))
         {
             allMagicTypes.Add(typeMagic);
@@ -45,7 +59,7 @@ public class MagicController : MonoBehaviour
             pos.z = 0;
             if (!CanvasRaycaster.IsUIElement(Input.GetTouch(0).position))
             {
-                GameObject test = Instantiate(pointEffect, pos, Quaternion.identity);
+                Instantiate(currentMagic, pos, Quaternion.identity);
             }
         }
     }

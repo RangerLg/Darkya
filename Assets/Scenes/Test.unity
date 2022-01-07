@@ -531,6 +531,7 @@ GameObject:
   - component: {fileID: 176269629}
   - component: {fileID: 176269628}
   - component: {fileID: 176269631}
+  - component: {fileID: 176269632}
   m_Layer: 5
   m_Name: Magic 1
   m_TagString: Untagged
@@ -600,7 +601,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 176269629}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 176269632}
+        m_TargetAssemblyTypeName: ChangedMagicController, Assembly-CSharp
+        m_MethodName: ChangeMagic
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &176269629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -658,6 +671,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &176269632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176269626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fef2a9691098db4d9a94aaf7c1c6b38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  magicController: {fileID: 996416218}
 --- !u!1 &230421980
 GameObject:
   m_ObjectHideFlags: 0
@@ -1023,8 +1049,10 @@ GameObject:
   - component: {fileID: 472991417}
   - component: {fileID: 472991416}
   - component: {fileID: 472991415}
+  - component: {fileID: 472991418}
+  - component: {fileID: 472991419}
   m_Layer: 5
-  m_Name: Magic 1
+  m_Name: Magic 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1046,9 +1074,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -75.8, y: 39.7}
+  m_AnchoredPosition: {x: -75.80062, y: 39.700405}
   m_SizeDelta: {x: 50, y: 50}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.49999908, y: 0.5000001}
 --- !u!114 &472991415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1092,7 +1120,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 472991416}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 472991418}
+        m_TargetAssemblyTypeName: ChangedMagicController, Assembly-CSharp
+        m_MethodName: ChangeMagic
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &472991416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1131,6 +1171,38 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 472991413}
   m_CullTransparentMesh: 1
+--- !u!114 &472991418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 472991413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fef2a9691098db4d9a94aaf7c1c6b38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  magicController: {fileID: 996416218}
+--- !u!95 &472991419
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 472991413}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 008d87d752363574b9b4ed0ea87145a4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &520335629
 GameObject:
   m_ObjectHideFlags: 0
@@ -1175,11 +1247,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   contentPanel1: {fileID: 176269631}
-  contentPanel2: {fileID: 1323940179}
+  contentPanel2: {fileID: 472991419}
   contentPanel3: {fileID: 725126674}
   magic1: {fileID: 176269628}
-  magic2: {fileID: 0}
-  magic3: {fileID: 0}
+  magic2: {fileID: 472991415}
+  magic3: {fileID: 725126671}
   MagicController: {fileID: 0}
 --- !u!1 &586318809
 GameObject:
@@ -1439,8 +1511,9 @@ GameObject:
   - component: {fileID: 725126672}
   - component: {fileID: 725126671}
   - component: {fileID: 725126674}
+  - component: {fileID: 725126675}
   m_Layer: 5
-  m_Name: Magic 1
+  m_Name: Magic 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1508,7 +1581,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 725126672}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 725126675}
+        m_TargetAssemblyTypeName: ChangedMagicController, Assembly-CSharp
+        m_MethodName: ChangeMagic
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &725126672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1566,6 +1651,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &725126675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 725126669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fef2a9691098db4d9a94aaf7c1c6b38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  magicController: {fileID: 996416218}
 --- !u!1 &829560965
 GameObject:
   m_ObjectHideFlags: 0
@@ -1823,7 +1921,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75fb6499c1d7d4342920e938c1b8b5c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointEffect: {fileID: 6395832380981116922, guid: 6435a9e5be091544ca29352bf470d64d, type: 3}
+  pointEffect1: {fileID: 6395832380981116922, guid: 6435a9e5be091544ca29352bf470d64d, type: 3}
+  pointEffect2: {fileID: 6395832380981116922, guid: 6435a9e5be091544ca29352bf470d64d, type: 3}
+  pointEffect3: {fileID: 6395832380981116922, guid: 6435a9e5be091544ca29352bf470d64d, type: 3}
 --- !u!4 &996416219
 Transform:
   m_ObjectHideFlags: 0
@@ -1955,7 +2055,6 @@ GameObject:
   - component: {fileID: 1323940178}
   - component: {fileID: 1323940181}
   - component: {fileID: 1323940180}
-  - component: {fileID: 1323940179}
   m_Layer: 5
   m_Name: PanelContent2
   m_TagString: Untagged
@@ -1983,25 +2082,6 @@ RectTransform:
   m_AnchoredPosition: {x: 72.499985, y: -58.499985}
   m_SizeDelta: {x: -145.00003, y: -117.00003}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!95 &1323940179
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1323940177}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 77b8bf1e6b0794e4a9aac84fc1206eb7, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &1323940180
 MonoBehaviour:
   m_ObjectHideFlags: 0

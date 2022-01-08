@@ -16,7 +16,9 @@ public enum MagicType
 public class MagicController : MonoBehaviour
 {
     private bool touchedLastFrame;
+    private bool isMagicAvailable;
     [SerializeField] MagicFactory factory;
+    [SerializeField] private int magicTimer;
     private static MagicType currentMagic;
     private List<MagicType> allMagicTypes = new List<MagicType>();
     private List<MagicType> foundMagicTypes = new List<MagicType>();
@@ -49,7 +51,7 @@ public class MagicController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began)
+        if (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began&&isMagicAvailable)
         {
             var pos = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
             pos.z = 0;
@@ -57,10 +59,17 @@ public class MagicController : MonoBehaviour
             if (!CanvasRaycaster.IsUIElement(Input.GetTouch(0).position))
             {
                 Instantiate(factory.GetMagic(currentMagic).EffectPrefab, pos, Quaternion.identity);
+                StartCoroutine(Timer());
             }
         }
     }
 
+    private IEnumerator Timer()
+    {
+        isMagicAvailable = false;
+        yield return new WaitForSeconds(magicTimer);
+        isMagicAvailable = true;
+    }
 
     public int GetCount()
     {

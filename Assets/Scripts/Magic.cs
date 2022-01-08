@@ -6,13 +6,13 @@ using UnityEngine.Experimental.Rendering.Universal;
 
 
 
-public abstract class Magic
+public abstract class Magic : MonoBehaviour
 {
     protected float Duration { set; get; }
     protected MagicType MType { set; get; }
     public GameObject EffectPrefab { get; set; }
 
-    public abstract void LightUp(Transform pos);
+    public abstract void LightUp(Vector3 pos);
     
 }
 
@@ -25,10 +25,10 @@ public class PointMagic : Magic
         MType = MagicType.POINT;
     }
     
-    public override void LightUp(Transform pos)
+    public override void LightUp(Vector3 pos)
     {
         
-        Debug.Log(MType);
+        Instantiate(EffectPrefab, pos, Quaternion.identity);
     }
 }
 
@@ -39,9 +39,16 @@ public class ConeMagic : Magic
          EffectPrefab = effect;
          MType = MagicType.CONE;
      }
-     public override void LightUp(Transform pos)
+     public override void LightUp(Vector3 pos)
      {
-         
+         GameObject player = GameObject.FindWithTag("Player");
+         Vector3 playerPos = player.transform.position;
+
+         Vector3 vectorToTarget = pos - playerPos;
+         float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg - 90;
+         Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
+         ConeEffect.radius = Vector3.Distance(pos, playerPos);
+         Instantiate(EffectPrefab, playerPos, q).transform.parent = player.transform;
          Debug.Log(MType);
      }
  }
@@ -53,7 +60,7 @@ public class RayMagic : Magic
         EffectPrefab = effect;
         MType = MagicType.RAYS;
     }
-    public override void LightUp(Transform pos)
+    public override void LightUp(Vector3 pos)
     {
         Debug.Log(MType);
     }

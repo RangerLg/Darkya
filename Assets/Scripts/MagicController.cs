@@ -19,6 +19,8 @@ public class MagicController : MonoBehaviour
     [SerializeField] MagicFactory factory;
     [SerializeField] private int magicTimer;
     private static MagicType currentMagic;
+
+    [SerializeField] private GameObject currMagic;
     private List<MagicType> allMagicTypes = new List<MagicType>();
     private List<MagicType> foundMagicTypes = new List<MagicType>();
     private List<MagicType> equippedMagicTypes = new List<MagicType>();

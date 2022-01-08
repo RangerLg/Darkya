@@ -27,7 +27,6 @@ public class PointMagic : Magic
     
     public override void LightUp(Vector3 pos)
     {
-        
         Instantiate(EffectPrefab, pos, Quaternion.identity);
     }
 }
@@ -50,6 +49,7 @@ public class ConeMagic : Magic
          ConeEffect.radius = Vector3.Distance(pos, playerPos);
          Instantiate(EffectPrefab, playerPos, q).transform.parent = player.transform;
          Debug.Log(MType);
+         
      }
  }
 

@@ -849,7 +849,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointEffect: {fileID: 6395832380981116922, guid: 6435a9e5be091544ca29352bf470d64d, type: 3}
-  coneEffect: {fileID: 6395832380981116922, guid: 6435a9e5be091544ca29352bf470d64d, type: 3}
+  coneEffect: {fileID: 6395832380981116922, guid: 766954de1fdee384080c0a6c9951ec46, type: 3}
   raysEffect: {fileID: 6395832380981116922, guid: 6435a9e5be091544ca29352bf470d64d, type: 3}
 --- !u!4 &294788216
 Transform:
@@ -1968,6 +1968,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   factory: {fileID: 294788215}
+  magicTimer: 2
+  currMagic: {fileID: 6395832380981116922, guid: 766954de1fdee384080c0a6c9951ec46, type: 3}
 --- !u!4 &996416219
 Transform:
   m_ObjectHideFlags: 0
@@ -2623,7 +2625,7 @@ GameObject:
   - component: {fileID: 1669138293}
   m_Layer: 3
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

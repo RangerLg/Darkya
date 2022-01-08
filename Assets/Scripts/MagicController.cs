@@ -16,11 +16,8 @@ public enum MagicType
 public class MagicController : MonoBehaviour
 {
     private bool touchedLastFrame;
-
-    [SerializeField] private GameObject pointEffect1;
-    [SerializeField] private GameObject pointEffect2;
-    [SerializeField] private GameObject pointEffect3;
-    private static GameObject currentMagic;
+    MagicFactory factory;
+    private static MagicType currentMagic;
     private List<MagicType> allMagicTypes = new List<MagicType>();
     private List<MagicType> foundMagicTypes = new List<MagicType>();
     private List<MagicType> equippedMagicTypes = new List<MagicType>();
@@ -33,18 +30,18 @@ public class MagicController : MonoBehaviour
     {
         currentMagic = numberOfMagic switch
         {
-            1 => pointEffect1,
-            2 => pointEffect2,
-            3 => pointEffect3,
-            _ => currentMagic
+            1 => MagicType.POINT,
+            2 => MagicType.CONE,
+            3 => MagicType.RAYS,
+            _ => MagicType.POINT
         };
-        Debug.Log(currentMagic+$"{numberOfMagic}");
     }
 
     void Start()
     {
+        factory = new MagicFactory();
         touchedLastFrame = false;
-        currentMagic = pointEffect1;
+        currentMagic = MagicType.POINT;
         foreach (MagicType typeMagic in Enum.GetValues(typeof(MagicType)))
         {
             allMagicTypes.Add(typeMagic);
@@ -57,9 +54,10 @@ public class MagicController : MonoBehaviour
         {
             var pos = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
             pos.z = 0;
+           
             if (!CanvasRaycaster.IsUIElement(Input.GetTouch(0).position))
             {
-                Instantiate(currentMagic, pos, Quaternion.identity);
+                Instantiate(factory.GetMagic(currentMagic).EffectPrefab, pos, Quaternion.identity);
             }
         }
     }

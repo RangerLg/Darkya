@@ -10,7 +10,7 @@ public abstract class Magic
 {
     protected float Duration { set; get; }
     protected MagicType MType { set; get; }
-    protected GameObject EffectPrefab;
+    public GameObject EffectPrefab { get; set; }
 
     public abstract void LightUp(Transform pos);
     

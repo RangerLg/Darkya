@@ -3,10 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
+using Object = UnityEngine.Object;
 
 
-
-public abstract class Magic : MonoBehaviour
+public abstract class Magic 
 {
     protected float Duration { set; get; }
     protected MagicType MType { set; get; }
@@ -27,7 +27,7 @@ public class PointMagic : Magic
     
     public override void LightUp(Vector3 pos)
     {
-        Instantiate(EffectPrefab, pos, Quaternion.identity);
+        Object.Instantiate(EffectPrefab, pos, Quaternion.identity);
     }
 }
 
@@ -47,7 +47,7 @@ public class ConeMagic : Magic
          float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg - 90;
          Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
          ConeEffect.radius = Vector3.Distance(pos, playerPos);
-         Instantiate(EffectPrefab, playerPos, q).transform.parent = player.transform;
+         UnityEngine.Object.Instantiate(EffectPrefab, playerPos, q).transform.parent = player.transform;
          Debug.Log(MType);
          
      }

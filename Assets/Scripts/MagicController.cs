@@ -16,7 +16,7 @@ public enum MagicType
 public class MagicController : MonoBehaviour
 {
     private bool touchedLastFrame;
-    MagicFactory factory;
+    [SerializeField] MagicFactory factory;
     private static MagicType currentMagic;
     private List<MagicType> allMagicTypes = new List<MagicType>();
     private List<MagicType> foundMagicTypes = new List<MagicType>();
@@ -39,7 +39,6 @@ public class MagicController : MonoBehaviour
 
     void Start()
     {
-        factory = new MagicFactory();
         touchedLastFrame = false;
         currentMagic = MagicType.POINT;
         foreach (MagicType typeMagic in Enum.GetValues(typeof(MagicType)))

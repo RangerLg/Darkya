@@ -11,6 +11,9 @@ public class FirecampLight : MonoBehaviour
     [SerializeField] float minValueOuterRadius;
     [SerializeField] float maxValueOuterRadius;
     [SerializeField] float delta;
+    [SerializeField] float minIntensity;
+    [SerializeField] float maxIntensity;
+    [SerializeField] float deltaIntensity;
 
     void Start()
     {
@@ -21,7 +24,7 @@ public class FirecampLight : MonoBehaviour
     {
         _light2d.pointLightInnerRadius = TudaSudaFloatValue(delta, minValueInnerRadius, maxValueInnerRadius, _light2d.pointLightInnerRadius);
         _light2d.pointLightOuterRadius = TudaSudaFloatValue(delta, minValueOuterRadius, maxValueOuterRadius, _light2d.pointLightOuterRadius);
-        _light2d.intensity = TudaSudaFloatValue(0.01f, 0.9f, 1.1f, _light2d.intensity);
+        _light2d.intensity = TudaSudaFloatValue(deltaIntensity, minIntensity, maxIntensity, _light2d.intensity);
     }
 
     private float TudaSudaFloatValue(float delta, float minValue, float maxValue, float currentRadiusOrWhatDoYouWantHereAnywayItShouldBeFloat)

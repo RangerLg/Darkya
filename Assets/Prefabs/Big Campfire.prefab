@@ -224,6 +224,9 @@ MonoBehaviour:
   minValueOuterRadius: 2.7
   maxValueOuterRadius: 3.5
   delta: 0.01
+  minIntensity: 0.9
+  maxIntensity: 1.1
+  deltaIntensity: 0.01
 --- !u!1 &7767039115414298916
 GameObject:
   m_ObjectHideFlags: 0

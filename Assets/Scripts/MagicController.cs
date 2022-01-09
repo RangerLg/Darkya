@@ -18,6 +18,7 @@ public class MagicController : MonoBehaviour
     private bool isMagicAvailable = true;
     [SerializeField] MagicFactory factory;
     [SerializeField] private int magicTimer;
+    [SerializeField] private PlayerManager playerManager;
     private static MagicType currentMagic;
 
     [SerializeField] private GameObject currMagic;
@@ -51,6 +52,7 @@ public class MagicController : MonoBehaviour
 
     private void Update()
     {
+        if(playerManager.isDied)return;
         if (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began && isMagicAvailable)
         {
             var pos = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);

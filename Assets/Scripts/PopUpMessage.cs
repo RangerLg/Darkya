@@ -5,7 +5,7 @@ using TMPro;
 
 public class PopUpMessage : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI ShowingMessage = new TextMeshProUGUI();
+    [SerializeField] TextMeshProUGUI ShowingMessage;
 
     public void OnTriggerEnter2D(Collider2D collision)
     {

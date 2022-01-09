@@ -13,6 +13,5 @@ public class CampfireManager : MonoBehaviour
         playerManager.currentCampfire = this.transform;
         var s = this.GetComponent<BoxCollider2D>();
         s.enabled = false;
-        playerManager.Die();
     }
 }

@@ -43,7 +43,7 @@ public class PlayerManager : MonoBehaviour
 
     private void Awake()
     {
-        player.transform.position = currentCampfire.position - new Vector3(1.5f, 0, 0);
+         player.transform.position = currentCampfire.position - new Vector3(1.5f, 0, 0);
     }
 
     private void UI(bool isActive)

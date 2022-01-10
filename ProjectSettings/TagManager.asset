@@ -8,6 +8,7 @@ TagManager:
   - BridgeRotator
   - BridgeActivator
   - Bridge
+  - ThirstTimeOnSecondLevel
   layers:
   - Default
   - TransparentFX

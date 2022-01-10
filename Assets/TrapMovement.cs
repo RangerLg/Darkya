@@ -7,7 +7,6 @@ public class TrapMovement : MonoBehaviour
 {
     void Update()
     {
-        transform.position = new Vector3(transform.position.x, (float) (transform.position.y + Math.Sin(Time.deltaTime)),
-            transform.position.z);
+        
     }
 }

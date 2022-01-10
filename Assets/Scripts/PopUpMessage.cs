@@ -7,15 +7,34 @@ public class PopUpMessage : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI ShowingMessage = new TextMeshProUGUI();
 
+    private bool _thisPlayerHasNeverBeenOn2Level = true;
+
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision != null && collision.tag == "BridgeActivator")
+        if (collision != null)
         {
-            LowerTheBridge(collision);
+            if (collision.tag == "BridgeActivator")
+            {
+                LowerTheBridge();
+            }
+            if (collision.tag == "Bridge")
+            {
+                OhItsBridge();
+            }
+            if (collision.tag == "ThirstTimeOnSecondLevel" && _thisPlayerHasNeverBeenOn2Level)
+            {
+                _thisPlayerHasNeverBeenOn2Level = false;
+                HellYeah2Level();
+            }
         }
     }
 
-    public void LowerTheBridge(Collider2D collision)
+    private void HellYeah2Level()
+    {
+        ShowMessage("No one was supposed to see this...", 3);
+    }
+
+    private void LowerTheBridge()
     {
         ShowMessage("That's might be what I need for a bridge...", 5);
         GameObject bridgeRotator = GameObject.FindGameObjectWithTag("BridgeRotator");
@@ -25,13 +44,17 @@ public class PopUpMessage : MonoBehaviour
         }
     }
 
-    public void ShowMessage(string message, int secondOfShowing)
+    private void OhItsBridge()
+    {
+        ShowMessage("Bridge... I need to find something to lower it", 5);
+    }
+
+    private void ShowMessage(string message, int secondOfShowing)
     {
         Debug.Log(message);
         ShowingMessage.text = message;
         StartCoroutine(TimeOfShowingMessage(secondOfShowing));
     }
-
     private IEnumerator TimeOfShowingMessage(int seconds)
     {
         yield return new WaitForSeconds(seconds);

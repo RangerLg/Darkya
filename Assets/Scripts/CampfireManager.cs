@@ -17,10 +17,10 @@ public class CampfireManager : MonoBehaviour
         Debug.Log("test");
         var position = this.gameObject.transform;
         if (!other.CompareTag("Player")) return;
-        playerManager.currentCampfire = this.transform;
-        this.CreateCampfireManager.CreateCampfire(position);
+        var newCampfire = CreateCampfireManager.CreateCampfire(position);
         Destroy(this.gameObject);
-        var s = this.GetComponent<BoxCollider2D>();
+        var s = newCampfire.GetComponent<BoxCollider2D>();
+        playerManager.currentCampfire = newCampfire.transform;
         s.enabled = false;
     }
 }

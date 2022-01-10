@@ -1,13 +1,17 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class CharacterController2D : MonoBehaviour
 {
     [SerializeField] private float m_JumpForce = 400f; // Amount of force added when the player jumps.
-
+    
+    
     [Range(0, 1)] [SerializeField]
     private float m_CrouchSpeed = .36f; // Amount of maxSpeed applied to crouching movement. 1 = 100%
 
+    [SerializeField] public PlayerManager playerManager;
     [Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f; // How much to smooth out the movement
     [SerializeField] private bool m_AirControl = false; // Whether or not a player can steer while jumping;
     [SerializeField] private LayerMask m_WhatIsGround; // A mask determining what is ground to the character
@@ -32,8 +36,11 @@ public class CharacterController2D : MonoBehaviour
     public BoolEvent OnCrouchEvent;
     private bool m_wasCrouching = false;
 
+
+
     private void Awake()
     {
+        
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
 
         if (OnLandEvent == null)
@@ -43,13 +50,13 @@ public class CharacterController2D : MonoBehaviour
             OnCrouchEvent = new BoolEvent();
     }
 
+  
+
     private void FixedUpdate()
     {
         bool wasGrounded = m_Grounded;
         m_Grounded = false;
-
-        // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
-        // This can be done using layers instead but Sample Assets will not overwrite your project settings.
+        
         Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
         for (int i = 0; i < colliders.Length; i++)
         {
@@ -65,6 +72,11 @@ public class CharacterController2D : MonoBehaviour
 
     public void Move(float move, bool crouch, bool jump)
     {
+        if (playerManager.isDied)
+        {
+            m_Rigidbody2D.velocity = new Vector2(0,0);
+            return;
+        }
         // If crouching, check to see if the character can stand up
         if (!crouch)
         {

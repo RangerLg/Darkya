@@ -48,7 +48,7 @@ public class ConeMagic : Magic
          Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
          ConeEffect.radius = Vector3.Distance(pos, playerPos);
          UnityEngine.Object.Instantiate(EffectPrefab, playerPos, q).transform.parent = player.transform;
-         Debug.Log(MType);
+  
          
      }
  }

@@ -14,7 +14,6 @@ public class CampfireManager : MonoBehaviour
     // Start is called before the first frame update
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("test");
         var position = this.gameObject.transform;
         if (!other.CompareTag("Player")) return;
         var newCampfire = CreateCampfireManager.CreateCampfire(position);

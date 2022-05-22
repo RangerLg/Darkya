@@ -27,7 +27,13 @@ public class PlayerMovement : MonoBehaviour
         if (CrossPlatformInputManager.GetButtonDown("Jump"))
         {
             jump = true;
+            _animator.SetBool("IsJumping", true);
         }
+    }
+
+    public void OnLanding()
+    {
+        _animator.SetBool("IsJumping", false);
     }
 
     private void FixedUpdate()

@@ -30,7 +30,6 @@ public class CanvasRaycaster : MonoBehaviour
         _mRaycaster.Raycast(_mPointerEventData, results);
 
         //For every result returned, output the name of the GameObject on the Canvas hit by the Ray
-        Debug.Log(results.Count);
         return results.Count != 0;
     }
 }

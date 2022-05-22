@@ -15,7 +15,7 @@ public enum MagicType
 
 public class MagicController : MonoBehaviour
 {
-    private bool isMagicAvailable = true;
+    public static bool isMagicAvailable = true;
     [SerializeField] MagicFactory factory;
     [SerializeField] private int magicTimer;
     [SerializeField] private PlayerManager playerManager;
@@ -29,6 +29,8 @@ public class MagicController : MonoBehaviour
     private MagicType currentMagicType;
 
     private Dictionary<MagicType, GameObject> effects;
+
+    public static bool CanCast = true;
 
     public void ChangeMagic(int numberOfMagic)
     {

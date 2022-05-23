@@ -5029,8 +5029,8 @@ MonoBehaviour:
   minValueOuterRadius: 2.5
   maxValueOuterRadius: 3
   delta: 0.01
-  minIntensity: 2.7
-  maxIntensity: 3.2
+  minIntensity: 2.2
+  maxIntensity: 2.7
   deltaIntensity: 0.01
 --- !u!1 &2519910823317409516
 GameObject:

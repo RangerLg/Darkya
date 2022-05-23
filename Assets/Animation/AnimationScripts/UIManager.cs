@@ -30,13 +30,13 @@ namespace Animation.AnimationScripts
 
         public void ToggleMenu()
         {
-            contentPanel3.enabled = true;
-            var isHidden = contentPanel3.GetBool(IsHidden);
-            contentPanel3.SetBool(IsHidden, !isHidden);
+            //contentPanel3.enabled = true;
+            //var isHidden = contentPanel3.GetBool(IsHidden);
+            //contentPanel3.SetBool(IsHidden, !isHidden);
 
 
             contentPanel2.enabled = true;
-            isHidden = contentPanel2.GetBool(IsHidden);
+            var isHidden = contentPanel2.GetBool(IsHidden);
             contentPanel2.SetBool(IsHidden, !isHidden);
 
             contentPanel1.enabled = true;

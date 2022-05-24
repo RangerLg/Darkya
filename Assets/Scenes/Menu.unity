@@ -158,7 +158,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 174, y: 186}
+  m_AnchoredPosition: {x: 259, y: 264}
   m_SizeDelta: {x: 612.393, y: 499.0916}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &64269866
@@ -201,7 +201,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b84fe32d90fc9a841bd9974324f1d7e8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 283dd5ac78790564f92c00299cff9c1a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -967,7 +967,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1929353799}
   - component: {fileID: 1929353798}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: spike_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -993,7 +993,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1013,7 +1013,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 2c55593892c9e7b428a257e36dbc8a6e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1033,7 +1033,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1929353797}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 966, y: 91, z: 0}
+  m_LocalPosition: {x: 929, y: 108, z: 0}
   m_LocalScale: {x: 423.78003, y: 395.63998, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

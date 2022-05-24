@@ -9,7 +9,7 @@ public class SceneManagement : MonoBehaviour
 
     public void PlayPressed()
     {
-        SceneManager.LoadScene("Test");
+        SceneManager.LoadScene("MainScene");
     }
 
     // Update is called once per frame
